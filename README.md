@@ -34,3 +34,10 @@ The library exports a single class:
 - `count_greater(left, right, value)` — returns the number of elements > `value`.
 - `count_between(left, right, low, high)` — returns the number of elements in `[low, high]`.
 - `len(tree)` — returns the length of the original sequence.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
